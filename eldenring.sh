@@ -38,7 +38,15 @@ echo "Your First Beast Approaches. Prepare To Battle. Pick A Number Between 0-1.
 read tarnished
 
 if [[ $beast == $tarnished ]]; then
-	echo "Beast VANQUISHED!! Congrats fellow tarnished";
+	hp=$(( $hp - 1 ))
+	if [[ $hp > 0 ]]; then
+		echo "Beast VANQUISHED!! Congrats fellow tarnished";
+		echo "Your Current HP is $hp"
+	else
+		echo "Beast VANQUISHED!! But ";
+		echo "You Died"
+		exit 1
+	fi
 else
 	echo "You Died"
 	exit 1
